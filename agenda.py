@@ -4,7 +4,7 @@ i = 0
 contatos = {}
 saida = True
 
-
+#editar
 def adicionar():
 
     name = input("Nome: ")
