@@ -1,10 +1,9 @@
 # agenda
-print("ola")
-print("testando")
+
 i = 0
 contatos = {}
 saida = True
-print("n quer funcionar")
+
 
 def adicionar():
 
