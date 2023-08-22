@@ -1,5 +1,5 @@
 # agenda
-
+print("ola")
 i = 0
 contatos = {}
 saida = True
