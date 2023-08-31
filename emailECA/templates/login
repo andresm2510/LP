@@ -1,0 +1,10 @@
+<html>
+
+<body>
+    <form method="POST" action="/login">
+        <H1>Bem vindo ao e-mail de ECA</H1>
+        <p>Login: <input type="text" id="nome" name="nome"> </p>
+        <p>Senha: <input type="password" id="senha" name="senha"> </p>
+        <input type="submit" value="Logar">
+    </form>
+</body>
