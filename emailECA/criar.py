@@ -10,6 +10,7 @@ def salvar(data, destinatario, mensagem, remetente):
     global i
     i += 1
 
+
 '''
 criar funçcao para mudar esse txt para pdf
 '''
