@@ -5,8 +5,8 @@ i = 0
 
 
 def salvar(data, destinatario, mensagem, remetente):
-    global carta
-    carta = open("carta"+remetente+".txt", "a")
+    global i
+    carta = open("carta" + str(i)+".txt", "a")
     print(data+destinatario+mensagem+remetente)
     carta.write(data+"\n"+destinatario+"\n"+mensagem+"\n"+remetente)
     global i
@@ -17,7 +17,7 @@ def salvar(data, destinatario, mensagem, remetente):
 
 '''
 criar funçcao para mudar esse txt para pdf
-'''
+
 
 
 def pdf(arquivotxt, arquivo):
@@ -31,3 +31,4 @@ def pdf(arquivotxt, arquivo):
         c.drawString(100, 700, line)
         c.showPage()
         c.save()
+'''

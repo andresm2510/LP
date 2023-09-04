@@ -22,7 +22,7 @@ def mail():
         '''
         criar verificaçao pra fazer o login
         '''
-        return render_template("escrever.html", data_atual=data_atual)
+        return redirect("escrever.html", data_atual=data_atual)
     else:
         print("deu errado")
 
@@ -61,5 +61,6 @@ def irdnv():
     if cont == "Voltar para pagina de login":
         return render_template("login.html")
 
-if __name__=="__main__":
-    app.run(debug = True)
+
+if __name__ == "__main__":
+    app.run(debug=True)
