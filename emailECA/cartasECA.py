@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, session, url_for, flash
 import datetime
+import secrets
 import criar
 app = Flask(__name__)
-nome
+nome = "nulo"
 data_atual = datetime.datetime.now().strftime("%d-%m-%Y")
 
 
@@ -43,7 +44,7 @@ def escreveCarta():
             return render_template("sucesso.html")
 
 
-@app.route("/success", methos=["POST"])
+@app.route("/success", methods=["POST"])
 def ultimapag():
     global nome
     global data_atual
@@ -54,8 +55,11 @@ def ultimapag():
         return render_template("bye.html")
 
 
-@app.route("/bye", method=["POST"])
+@app.route("/bye", methods=["POST"])
 def irdnv():
     cont = request.form["botao"]
     if cont == "Voltar para pagina de login":
         return render_template("login.html")
+
+if __name__=="__main__":
+    app.run(debug = True)
