@@ -19,14 +19,17 @@ def mail():
         global nome
         nome = request.form.get("nome")
         senha = request.form.get("senha")
-        '''
-        criar verificaçao pra fazer o login
-        '''
-        return redirect("escrever.html", data_atual=data_atual)
-    else:
-        print("deu errado")
+        if criar.validarLogin(nome, senha):
+            session["nome"] = nome
+            session["senha"] = senha
+            return render_template("escrever.html", data_atual=data_atual)
+        else:
+            flash("Usuario ou senha incorretos!", "error")
 
-        return ("login.html")
+            return render_template("login.html")
+    else:
+        print("nao deu")
+        return render_template("login.html")
 
 
 @app.route("/mail", methods=["POST"])
@@ -36,7 +39,7 @@ def escreveCarta():
         destinatario = request.form.get("destinatario")
         mensagem = request.form.get("mensagem")
         if destinatario == "" or mensagem == "":
-            '''imprimir mensagem de erro'''
+            flash("Carta sem destinatario ou mensagem!")
 
         else:
             global data_atual
