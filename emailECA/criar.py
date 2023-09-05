@@ -2,7 +2,6 @@ import cartasECA
 import textwrap
 import sys
 from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
 from fpdf import FPDF
 i = 0
 
@@ -23,13 +22,12 @@ def salvar(data, destinatario, mensagem, remetente):
     carta = open("carta" + str(i)+".txt", "a")
     print(data+destinatario+mensagem+remetente)
     carta.write(data+"\n"+destinatario+"\n"+mensagem+"\n"+remetente)
-    global i
     i += 1
     teste = carta
     # pdf(carta, teste)
 
 
-def Tpdf(arquivotxt, arquivo):
+def Tpdf(txt, arquivo):
 
     a4_width_mm = 210
     pt_to_mm = 0.35
@@ -45,6 +43,7 @@ def Tpdf(arquivotxt, arquivo):
     pdf.set_font(family='Courier', size=fontsize_pt)
     splitted = txt.split('\n')
     for line in splitted:
+        lines = textwrap.wrap(line, width_text)
         if len(lines) == 0:
             pdf.ln
 
