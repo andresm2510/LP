@@ -3,6 +3,7 @@ import datetime
 import secrets
 import criar
 app = Flask(__name__)
+app.secret_key = secrets.token_hex(24)
 nome = "nulo"
 data_atual = datetime.datetime.now().strftime("%d-%m-%Y")
 

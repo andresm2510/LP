@@ -4,17 +4,21 @@ import sys
 from reportlab.lib.pagesizes import letter
 from fpdf import FPDF
 i = 0
+j = 0
 
 
 def validarLogin(nome, senha):
+    global j
     with open("login.txt", "r") as arquivo:
         linhas = arquivo.readlines()
         for linha in linhas:
-            dados = linha.strip("-").split()
+            dados = linha.strip().split("-")
             if len(dados) == 2 and dados[0] == nome and dados[1] == senha:
-                return True
-            else:
-                return False
+                j += 1
+    if j != 0:
+        return True
+    else:
+        return False
 
 
 def salvar(data, destinatario, mensagem, remetente):
@@ -23,8 +27,10 @@ def salvar(data, destinatario, mensagem, remetente):
     print(data+destinatario+mensagem+remetente)
     carta.write(data+"\n"+destinatario+"\n"+mensagem+"\n"+remetente)
     i += 1
-    teste = carta
-    # pdf(carta, teste)
+
+    txt = f"carta{i-1}.txt"
+    arquivo = f"carta{i-1}.pdf"
+    Tpdf(txt, arquivo)
 
 
 def Tpdf(txt, arquivo):
@@ -45,7 +51,7 @@ def Tpdf(txt, arquivo):
     for line in splitted:
         lines = textwrap.wrap(line, width_text)
         if len(lines) == 0:
-            pdf.ln
+            pdf.ln()
 
         for wrap in lines:
             pdf.cell(0, fontsize_mm, wrap, ln=1)
