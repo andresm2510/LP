@@ -48,6 +48,7 @@ def Tpdf(txt, arquivo):
     pdf.add_page()
     pdf.set_font(family='Courier', size=fontsize_pt)
     splitted = txt.split('\n')
+
     for line in splitted:
         lines = textwrap.wrap(line, width_text)
         if len(lines) == 0:
