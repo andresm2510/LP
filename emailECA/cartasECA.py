@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, session, url_for, flash
+from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 import datetime
 import secrets
 import criar
